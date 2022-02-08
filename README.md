@@ -2,4 +2,4 @@
 Klondike game project period 1
 
 ## Group
-Siddharth, Aditya, Wu
+Siddharth Bhargav, Aditya Maramreddy, Wu Li
