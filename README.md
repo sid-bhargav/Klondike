@@ -1,2 +1,5 @@
 # Klondike
-Klondike game project
+Klondike game project period 1
+
+## Group
+Siddharth, Aditya, Wu
