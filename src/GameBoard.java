@@ -53,8 +53,9 @@ public class GameBoard implements Drawable, Updateable {
 	 */
 	public void justClicked(MouseEvent me) {
 		Point p = me.getPoint();
+		int clickCount = me.getClickCount();
 		System.out.println("You just clicked "+p);
-		System.out.println(me);
+		System.out.println("You have clicked "+ clickCount + "Times");
 
 
 	}
