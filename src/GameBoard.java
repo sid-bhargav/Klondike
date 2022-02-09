@@ -54,6 +54,7 @@ public class GameBoard implements Drawable, Updateable {
 	public void justClicked(MouseEvent me) {
 		Point p = me.getPoint();
 		System.out.println("You just clicked "+p);
+		System.out.println(me);
 
 
 	}
