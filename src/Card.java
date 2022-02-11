@@ -42,31 +42,39 @@ public class Card implements Drawable, Updateable{
     }
 
     @Override
+    public String toString(){
+        String s = "";
+        String suitStr = "";
+        String numStr = "";
+        String suitOptions = "hsdc";
+        // Convert suit and number into file address
+        // Convert suit:
+        suitStr = suitOptions.substring(suit-1, suit);
+        // Convert num:
+        if (number >= 2 && number <= 10){
+            numStr = number + "";
+        }
+        if (number == 1)
+            numStr = "a";
+        if (number == 11)
+            numStr = "j";
+        if (number == 12)
+            numStr = "q";
+        if (number == 13)
+            numStr = "k";
+
+        s = suitStr + numStr;        
+        return s;
+    }
+
+    @Override
     public void draw(Graphics g) {
         try {
-            String suitStr = "";
-            String numStr = "";
-            String suitOptions = "hsdc";
-            // Convert suit and number into file address
-            // Convert suit:
-            suitStr = suitOptions.substring(suit-1, suit);
-            // Convert num:
-            if (number >= 2 && number <= 10){
-                numStr = number + "";
-            }
-            if (number == 1)
-                numStr = "a";
-            if (number == 11)
-                numStr = "j";
-            if (number == 12)
-                numStr = "q";
-            if (number == 13)
-                numStr = "k";
-
+            String address = "images/cards/" + this.toString() + ".png";
             // TODO if statement here decide up or down (probably add an Image as a parameter)
-            cardImage = ImageIO.read(new File("images/cards/dj.png"));
+            cardImage = ImageIO.read(new File(address));
         } catch (IOException e) {
-            // TODO Auto-generated catch block
+            System.out.println("We can't find your card, how cringe.");
             e.printStackTrace();
         }
         
