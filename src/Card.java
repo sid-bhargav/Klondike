@@ -12,6 +12,7 @@ import javax.imageio.ImageIO;
 public class Card implements Drawable, Updateable{
 
     // Card location coordinates
+    // TEMPORARILY FORCING LOCATION TO BE LOCKED SOMEWHERE, CHANGE THIS
     private int x;
     private int y;
 
@@ -35,10 +36,14 @@ public class Card implements Drawable, Updateable{
         this.number = num;
     }
 
+    public void setXY(int x, int y){
+        this.x = x;
+        this.y = y;
+    }
+
     @Override
     public void update(ActionEvent a) {
         // TODO Auto-generated method stub
-        
     }
 
     @Override
@@ -51,11 +56,9 @@ public class Card implements Drawable, Updateable{
         // Convert suit:
         suitStr = suitOptions.substring(suit-1, suit);
         // Convert num:
-        if (number >= 2 && number <= 10){
+        if (number >= 1 && number <= 10){
             numStr = number + "";
         }
-        if (number == 1)
-            numStr = "a";
         if (number == 11)
             numStr = "j";
         if (number == 12)
@@ -73,6 +76,7 @@ public class Card implements Drawable, Updateable{
             String address = "images/cards/" + this.toString() + ".png";
             // TODO if statement here decide up or down (probably add an Image as a parameter)
             cardImage = ImageIO.read(new File(address));
+            g.drawImage(cardImage, x, y, null);
         } catch (IOException e) {
             System.out.println("We can't find your card, how cringe.");
             e.printStackTrace();
