@@ -74,7 +74,7 @@ public class Card implements Drawable, Updateable{
     public void draw(Graphics g) {
         try {
             String address = "images/cards/" + this.toString() + ".png";
-            // TODO if statement here decide up or down (probably add an Image as a parameter)
+            // TODO an if statement to decide showing or not (probably add an Image as a parameter)
             cardImage = ImageIO.read(new File(address));
             g.drawImage(cardImage, x, y, null);
         } catch (IOException e) {

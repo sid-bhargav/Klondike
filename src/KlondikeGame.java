@@ -27,12 +27,6 @@ public class KlondikeGame {
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
 				board.draw(g);
-
-				// Test if card draw works
-				Card cardTest = new Card(2, 1);
-				System.out.println(cardTest);
-				cardTest.draw(g);
-
 			}
 		};
 		panel.addMouseListener(new MouseAdapter() {
