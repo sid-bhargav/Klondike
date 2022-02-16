@@ -11,6 +11,7 @@ import javax.imageio.ImageIO;
 /** represents a playing card that can draw itself. */
 public class Card implements Drawable, Updateable{
 
+<<<<<<< HEAD
     // Card location coordinates
     private int x;
     private int y;
@@ -28,7 +29,19 @@ public class Card implements Drawable, Updateable{
     13 = King **/
     private int number;
 
+=======
+    private int x; // Card location coordinates
+    private int y; // TEMPORARILY FORCING LOCATION TO BE LOCKED SOMEWHERE, CHANGE THIS
+    private int suit;   /** Suit represented by integers 1-4:
+                     1 = Hearts
+                     2 = Spades
+                     3 = Diamonds
+                     4 = Clubs **/
+    private int number; /** Number represented by integers 1-13:
+    1 = Ace; 2 = 2;... 13 = King **/
+>>>>>>> 553c69dbf0518230d45841a904782091e94d5d97
     private Image cardImage;
+
 
     public Card(int suit, int num){
         this.suit = suit;
@@ -76,8 +89,9 @@ public class Card implements Drawable, Updateable{
             // TODO an if statement to decide showing or not
             cardImage = ImageIO.read(new File(address));
             g.drawImage(cardImage, x, y, null);
-        } catch (IOException e) {
-            System.out.println("We can't find your card, how cringe.");
+        }
+        catch (IOException e) {
+            System.out.println("Can't find your card, cringe.");
             e.printStackTrace();
         }
         
