@@ -12,6 +12,10 @@ public abstract class Pile implements Drawable, Updateable {
     public abstract boolean canAddCard(Card c);
     private ArrayList<Card> cards = new ArrayList<>();
 
+    // Location of pile from top left
+    private int x;
+    private int y;
+
     //This method has no check for inserting a list of cards to a pile; implement a check 
     //method elsewhere
     //It takes an input list and adds it to an existing pile
