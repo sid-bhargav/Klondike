@@ -22,7 +22,7 @@ public class Card implements Drawable, Updateable{
     1 = Ace; 2 = 2;... 13 = King **/
     private Image cardImage;
 
-    
+
     public Card(int suit, int num){
         this.suit = suit;
         this.number = num;
@@ -69,8 +69,9 @@ public class Card implements Drawable, Updateable{
             // TODO an if statement to decide showing or not (probably add an Image as a parameter)
             cardImage = ImageIO.read(new File(address));
             g.drawImage(cardImage, x, y, null);
-        } catch (IOException e) {
-            System.out.println("We can't find your card, how cringe.");
+        }
+        catch (IOException e) {
+            System.out.println("Can't find your card, cringe.");
             e.printStackTrace();
         }
         

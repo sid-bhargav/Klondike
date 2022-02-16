@@ -16,3 +16,15 @@ public interface Drawable {
      */
     void draw(Graphics g);
 }
+
+
+// public interface Drawable {
+//     /**
+//      * This method will be called when this Object must draw itself
+//      * (potentially from scratch).  This Object must know its own 
+//      * location.
+//      * @param g The Graphics context onto which this Object will 
+//      * display itself.
+//      */
+//     void draw(Graphics g);
+// }
