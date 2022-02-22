@@ -31,6 +31,7 @@ public abstract class Pile implements Drawable, Updateable {
     //Checks to see if a pile can be appended to another pile.
     //Pile one is the original pile;
     //Pile two is the pile to be added.
+    //This method only works for adding to the inPlay Piles.
     public boolean checkAddable(Pile one, Pile two){
         Card cardOne = one.getCard(one.getSize()-1);
         Card cardTwo = two.getCard(two.getSize()-1);
