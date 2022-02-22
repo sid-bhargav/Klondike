@@ -21,6 +21,7 @@ public class Card implements Drawable, Updateable{
     private int number; /** Number represented by integers 1-13:
     1 = Ace; 2 = 2;... 13 = King **/
     private Image cardImage;
+    private Image backImage;
 
 
     public Card(int suit, int num){
