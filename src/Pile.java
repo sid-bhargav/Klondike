@@ -16,6 +16,14 @@ public abstract class Pile implements Drawable, Updateable {
     private int x;
     private int y;
 
+    //utility
+    public Card getCard(int index){
+        if(index>-1 && index <cards.size()){
+            return cards.get(index);
+        }
+        return null;
+        }
+
     //This method has no check for inserting a list of cards to a pile; implement a check 
     //method elsewhere
     //It takes an input list and adds it to an existing pile
