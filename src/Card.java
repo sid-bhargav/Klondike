@@ -20,13 +20,37 @@ public class Card implements Drawable, Updateable{
                      4 = Clubs **/
     private int number; /** Number represented by integers 1-13:
     1 = Ace; 2 = 2;... 13 = King **/
+    
     private Image cardImage;
     private Image backImage;
+    private boolean showingBack;
 
 
     public Card(int suit, int num){
         this.suit = suit;
         this.number = num;
+
+        // load front card
+        try {
+            String address = "images/cards/" + this.toString() + ".png";
+            // TODO an if statement to decide showing or not
+            cardImage = ImageIO.read(new File(address));
+        }
+        catch (IOException e) {
+            System.out.println("Can't find your card's front, cringe.");
+            e.printStackTrace();
+        }
+
+        // load back card
+        try {
+            String address = "images/cards/b1fv.png";
+            // TODO an if statement to decide showing or not
+            backImage = ImageIO.read(new File(address));
+        }
+        catch (IOException e) {
+            System.out.println("Can't find your card's back, cringe.");
+            e.printStackTrace();
+        }
     }
 
     public void setXY(int x, int y){
@@ -65,16 +89,11 @@ public class Card implements Drawable, Updateable{
 
     @Override
     public void draw(Graphics g) {
-        try {
-            String address = "images/cards/" + this.toString() + ".png";
-            // TODO an if statement to decide showing or not
-            cardImage = ImageIO.read(new File(address));
-            g.drawImage(cardImage, x, y, null);
+        
+        if(showingBack){
+            g.drawImage(backImage, x, y, null);
         }
-        catch (IOException e) {
-            System.out.println("Can't find your card, cringe.");
-            e.printStackTrace();
-        }
+        g.drawImage(cardImage, x, y, null);
         
     }
 
