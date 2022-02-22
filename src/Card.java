@@ -57,6 +57,12 @@ public class Card implements Drawable, Updateable{
         this.x = x;
         this.y = y;
     }
+    public int getSuit(){
+        return suit;
+    }
+    public int getNumber(){
+        return number;
+    }
 
     @Override
     public void update(ActionEvent a) {

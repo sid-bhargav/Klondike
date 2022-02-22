@@ -16,6 +16,10 @@ public abstract class Pile implements Drawable, Updateable {
     private int x;
     private int y;
 
+    public int getSize(){
+        return cards.size();
+    }
+
     //utility
     public Card getCard(int index){
         if(index>-1 && index <cards.size()){
@@ -23,6 +27,21 @@ public abstract class Pile implements Drawable, Updateable {
         }
         return null;
         }
+
+    //Checks to see if a pile can be appended to another pile.
+    //Pile one is the original pile;
+    //Pile two is the pile to be added.
+    public boolean checkAddable(Pile one, Pile two){
+        Card cardOne = one.getCard(one.getSize()-1);
+        Card cardTwo = two.getCard(two.getSize()-1);
+        if (cardOne.getNumber()-cardTwo.getNumber()==-1){
+            if (cardOne.getSuit()-cardTwo.getSuit()==-1 || cardOne.getSuit()-cardTwo.getSuit()==1){
+                return true;
+            }
+        }
+    return false;
+    }
+
 
     //This method has no check for inserting a list of cards to a pile; implement a check 
     //method elsewhere
