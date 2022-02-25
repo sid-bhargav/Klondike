@@ -32,7 +32,7 @@ public abstract class Pile implements Drawable, Updateable {
     //Pile one is the original pile;
     //Pile two is the pile to be added.
     //This method only works for adding to the Ace Piles.
-    public boolean checkAddable(Pile one, Pile two){
+    public boolean checkAddableAce(Pile one, Pile two){
         Card cardOne = one.getCard(one.getSize()-1);
         Card cardTwo = two.getCard(two.getSize()-1);
         if (cardOne.getNumber()-cardTwo.getNumber()==-1){
@@ -43,6 +43,17 @@ public abstract class Pile implements Drawable, Updateable {
     return false;
     }
 
+    //"duplicate" function that works for non-ace piles
+    public boolean checkAddable(Pile one, Pile two){
+            Card cardOne = one.getCard(one.getSize()-1);
+            Card cardTwo = two.getCard(two.getSize()-1);
+            if (cardOne.getNumber()-cardTwo.getNumber()==1){
+                if (cardOne.getSuit()-cardTwo.getSuit()==-1 || cardOne.getSuit()-cardTwo.getSuit()==1){
+                    return true;
+                }
+            }
+        return false;
+    }
 
     //This method has no check for inserting a list of cards to a pile; implement a check 
     //method elsewhere
@@ -64,6 +75,10 @@ public abstract class Pile implements Drawable, Updateable {
             cards.remove(index);//removes the cards from the index to the end
         }
         return toRemove;
+    }
+
+    public Card checkTopCard(){
+        return cards.get(cards.size()-1);
     }
     
 }
