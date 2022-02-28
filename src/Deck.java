@@ -3,6 +3,15 @@ import java.awt.event.ActionEvent;
 
 public class Deck extends Pile{
 
+    public Deck(){
+        for (int i=0; i<4; i++){
+            for (int j=0; j<14; j++){
+                Card c = new Card(i+1,j);
+                cards.add(c);
+            }
+        }
+    }
+
     @Override
     public void draw(Graphics g) {
         // TODO Auto-generated method stub
