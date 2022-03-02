@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public abstract class Pile implements Drawable, Updateable {
     
     public abstract boolean canAddCard(Card c);
-    private ArrayList<Card> cards = new ArrayList<>();
+    protected ArrayList<Card> cards = new ArrayList<>();
 
     // Location of pile from top left
     private int x;
